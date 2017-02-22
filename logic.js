@@ -1,7 +1,7 @@
 var wordList=["aaliyah", "radiohead", "bustarhymes", "nirvana", "delasoul"]
 var chosenWord = "";
 var lettersinChosenword = [];
-var numBlanks = 10;
+var numBlanks = 0;
 var blanksandSuccesses = [];
 var wrongGuesses = [];
 var winCounter = 0;
@@ -74,9 +74,21 @@ function roundComplete(){
 	3. this updates the HTML to show the wrong guesses.
 	4. this determins whether the user won game or not.
 	*/
-	document.getElementByID('wordblank').innerHTML=blanksandSuccesses;
+	document.getElementByID('wordblank').innerHTML=blanksandSuccesses.join;
 	document.getElementByID('guessesleft').innerHTML=numGuesses;
-	document.getElementByID('wrong-guesses').innerHTML= wrongGuesses;
+	document.getElementByID('wrong-guesses').innerHTML= wrongGuesses.join;
+
+	if (lettersinChosenword === blanksandSuccesses){
+		wincounter++;
+		alert("You Win!");
+		document.getElementByID('win-counter').innerHTML = wincounter;
+		startGame();
+	}
+	else if (numGuesses === 0){
+		document.getElementByID('loss-counter').innerHTML = losscounter++;
+		alert("You Lose!");
+		startGame();
+	}
 }	
 
 startGame();
