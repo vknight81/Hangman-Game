@@ -1,4 +1,4 @@
-var wordList=["aaliyah", "radiohead", "bustarhymes", "nirvana", "delasoul"]
+var wordList=["aaliyah", "radiohead", "bustarhymes", "nirvana", "delasoul", "boystomen", "newedition"]
 var chosenWord = "";
 var lettersinChosenword = [];
 var numBlanks = 0;
@@ -31,12 +31,7 @@ numBlanks = lettersinChosenword.length;
 
 }
 
-function myFunction(){
-document.getElementByID('wordblank').innerHTML = blanksandSuccesses;
-}
-function myFunction1(){
-document.getElementByID('guessesleft').innerHTML = numGuesses;
-}
+
 
 
 
@@ -53,7 +48,7 @@ function checkLetters(letter){
 			letterInWord = true;
 		}
 	}
-	if (letterinWord){
+	if (letterInWord){
 		for (i = 0; i < numBlanks; i++) {	
 			if (chosenWord[i] === letter){
 				blanksandSuccesses[i] = letter;
@@ -72,20 +67,20 @@ function roundComplete(){
 	/*1. this updates the HTML w/ letters that are in the word.
 	2. this updates the HTML w/ guesses that we have left.
 	3. this updates the HTML to show the wrong guesses.
-	4. this determins whether the user won game or not.
+	4. this determines whether the user won game or not.
 	*/
-	document.getElementByID('wordblank').innerHTML=blanksandSuccesses.join;
-	document.getElementByID('guessesleft').innerHTML=numGuesses;
-	document.getElementByID('wrong-guesses').innerHTML= wrongGuesses.join;
+	document.getElementById('wordblank').innerHTML=blanksandSuccesses.join(" ");
+	document.getElementById('guessesleft').innerHTML=numGuesses;
+	document.getElementById('wrong-guesses').innerHTML= wrongGuesses.join(" ");
 
-	if (lettersinChosenword === blanksandSuccesses){
-		wincounter++;
+	if (lettersinChosenword.join(" ") === blanksandSuccesses.join(" ")){
+		winCounter++;
 		alert("You Win!");
-		document.getElementByID('win-counter').innerHTML = wincounter;
-		startGame();
+		document.getElementById('win-counter').innerHTML = winCounter;
+		startGame(); 
 	}
 	else if (numGuesses === 0){
-		document.getElementByID('loss-counter').innerHTML = losscounter++;
+		document.getElementById('loss-counter').innerHTML = lossCounter++;
 		alert("You Lose!");
 		startGame();
 	}
@@ -96,8 +91,9 @@ document.onkeyup = function(event) {
 	/*1. take in the letter that we type in.
 	2. it will pass through the checkLetters function.
 	*/
-	var letterGuessed = String.fromCharCode(event.keycode).toLowerCase();
+	var letterGuessed = event.key;
 	console.log ("this is the letter we typed", letterGuessed);
 	checkLetters(letterGuessed);
 	roundComplete();
 }	
+

@@ -55,36 +55,44 @@ footer {
 			<!-- First Row- Main Title ("My Personal Page") -->
 			
 			<div class="row">
-				<h1>HANGMAN 90'S STYLE</h1>
+				<h1>HANGMAN 90'S MUSIC ARTISTS</h1>
 			</div>
 
 			<div class="row">
 				<div class="col-lg-6">
 				 	<div>
-						<h2>JAVASCRIPT IMAGE</h2>
+						<h2>GAME INSTRUCTIONS</h2>
 						<br>
-						<h3> Game Instructions Here</h3>
+						<h3>
+							<ol>
+								<li>Press any key to get started</li>
+								<br>
+								<li>You have 9 attempts to guess all letters to the mystery word</li>
+								<br>
+								<li>If all letters of the word are guessed successfully then you win!</li>
+							</ol>
+						</h3>
 					</div>
 				</div>	
 
 
 				<div class="col-lg-6">
 					<div>
-						<h2>Press any key to get started</h2>
-						<br>
 						<h3>WINS</h3>
+						<h3 id="win-counter"></h3>
 						<br>
-						<h3>(# OF WINS)</h3>
+						<h3>LOSSES</h3>
+						<h3 id="loss-counter"></h3>
 						<br>
 						<h3>Current Word</h3>
 						<br>
 						<h3 id="wordblank"></h3>
 						<br>
-						<h3>Guesses Remaining</h3>
+						<h3>Guesses Remaining:<span id='guessesleft'></span></h3>
 						<br>
-						<h3>Guesses Left:<span id='guessesleft'></span></h3>
+						<h3>Wrong Guesses</h3>
 						<br>
-						<h3 id='wrong-guesses'>Wrong Guesses</h3>
+						<h3 id='wrong-guesses'></h3>
 						<br>
 						<br>
 					</div>	
